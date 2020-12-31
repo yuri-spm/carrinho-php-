@@ -7,8 +7,8 @@ Projeto de estudo simulando um ponto de venda(pdv);
 * Configuração de Sessão              OK
 * Cadastro de produto                 OK
 * Cadastro de carrinho                OK
-* Cadastro de itens no carrinho (em andamento)
-
+* Cadastro de itens no carrinho       OK
+* Montar e finalizar o projeto  (EM ANDAMENTO)
 
 
 **Implantação** 
