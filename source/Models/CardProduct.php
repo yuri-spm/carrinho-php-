@@ -9,11 +9,10 @@ class CardProduct extends Model
     protected static $entity = "card_product";
 
 
-    public function bootstrap($card_id, $product_id, $unit_price, $amount)
+    public function bootstrap($card_id, $product_id, $amount)
     {
         $this->card_id = $card_id;
         $this->product_id = $product_id;
-        $this->unit_price = $unit_price;
         $this->amount = $amount;
        
 

@@ -14,9 +14,9 @@ class Card extends Model
 
 
 
-    public function  bootstrap($date, $total)
+    public function  bootstrap($card_date, $total)
     {
-        $this->date = $date;
+        $this->card_date = $card_date;
         $this->total = $total;
         
         return $this;

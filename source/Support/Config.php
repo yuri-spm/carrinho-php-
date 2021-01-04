@@ -30,5 +30,15 @@ define("CONF_DATE_APP", "Y-m-d H:i:s");
  * SESSION
  */
 
-
 define("CONF_SES_PATH", __DIR__ ."/../../storage/sessions");
+
+
+/**
+ * MESSAGE
+ */
+
+ define("CONF_MESSAGE_CLASS", "trigger");
+ define("CONF_MESSA_INFO", "info");
+ define("CONF_MESSA_SUCCESS", "success");
+ define("CONF_MESSA_INFO_WARNNING", "warning");
+ define("CONF_MESSA_INFO_ERROR", "erro");
