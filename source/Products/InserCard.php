@@ -1,12 +1,7 @@
 <?php
 
-
-
-namespace Source\Models;
-use Source\Core\Connect;
-
 use Source\Core\Session;
-use Source\Model\Card;
+use Source\Models\Card;
 use Source\Models\Product;
 
 require __DIR__ ."/../autoload.php";
@@ -21,9 +16,22 @@ var_dump(
   $produto->all(),
 );
 
+$date = date('Y-m-d');
+var_dump($date);
 
+$modelCard = new Card();
+$total = 0;
+$card = $modelCard->bootstrap($date, $total);
+if(!$modelCard->find($card->card_date))
+{
+    echo "Cadastro";
+    $card->save();
+}else{
+    echo "Lendo";
+   
 
-
+}
+$card = $modelCard->find($date);
 
 ?>
 <!Doctype html>
@@ -37,7 +45,7 @@ var_dump(
 
     <div class="container">
       <div>
-        <h3>ID CARRINHO</h3>
+        <h3><?= "Nº CUPOM ". $card->card_id;?></h3>
      </div>
         <table class="table">
           <thead>
@@ -49,6 +57,18 @@ var_dump(
               <th>Excluir</th>
             </tr>
       <tbody>
+      <?php foreach($_SESSION["carrinho"] as $key=>$value) :?>
+        <tr>
+          <td><?=$key; ?></td>
+          <td></td>
+          <td></td>
+          <td><?=$value;?></td>
+          <td><button type="submit"  class="btn btn-primary">Excluir</button></td>
+        </tr>
+        <?php endforeach ?>
       </tdoby>
       </table>
     </div>
+
+  </body>
+</html>
