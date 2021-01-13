@@ -9,6 +9,7 @@ Projeto de estudo simulando um ponto de venda(pdv);
 * Cadastro de carrinho                OK
 * Cadastro de itens no carrinho       OK
 * Montar e finalizar o projeto  (EM ANDAMENTO)
+    1-Configurando o botão de excluir
 
 
 **Implantação** 
