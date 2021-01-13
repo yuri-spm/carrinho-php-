@@ -21,6 +21,7 @@ $productItens = $model->all(30);
 <head>
     <meta charset="UTF-8">
     <title>Super Rede - Home</title>
+    <script src="js/jquery-3.2.1.min.js"></script> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 </head>
@@ -50,13 +51,14 @@ $productItens = $model->all(30);
                     <td><?php echo number_format($productIten->price, 2 ,"," , ".");?></td>
                     <td><?php echo $productIten->description;?></td>
                     <td>
-                        <form action="source/Products/InserCard.php" method="post">
+                        <form id="form" action="source/Products/InserCard.php" method="post">
                             <input name="id" type="hidden" value="<?php echo $productIten->product_id;?>"/>
                             <input name="name" type="hidden" value="<?php echo $productIten->name;?>"/>
                             <input name="price" type="hidden" value="<?php echo $productIten->price;?>"/>
                             <input name="amount" type="hidden" value="<?php echo $productIten->amount;?>"/>
-                           <button type="submit"  class="btn btn-primary">Adicionar</button>
+                           <button id="btnAdicionar"  class="btn btn-primary">Adicionar</button>
 
+                         
                     </td>
                           
                     <td>
@@ -65,6 +67,7 @@ $productItens = $model->all(30);
                 
                 </tr>
                 <?php endforeach?>   
+                <script src="js/script.js"></script>
             </tbody>
         </table>
     </div>

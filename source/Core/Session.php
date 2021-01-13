@@ -28,21 +28,22 @@ public function __construct()
     }
 
   
+    public function all(){
+        return (object)$_SESSION;
+    }
+
 
     public function set( $key, $value): Session
     {
         if(!isset($_SESSION['carrinho'][$key]) & !empty($_SESSION['carrinho'][$key]))
             $_SESSION['carrinho'][$key] = (is_array($value) ? (object)$value : $value);
         else{
-            $_SESSION['carrinho'][$key] += $value;
+            $_SESSION['carrinho'][$key] +=  $value;
         }
 
             return $this;
     }
 
-    public function all(){
-        return (object)$_SESSION;
-    }
 
     public function unset(string $key): Session 
     {

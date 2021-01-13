@@ -11,13 +11,32 @@ require __DIR__ ."/../autoload.php";
 $carrinho = new Session();
 
 /**Atribuindo itens ao carrinho */
-$produto = $carrinho->set($_POST['id'], 1);
+$id = $_POST['id'];
+$name = $_POST['name'];
+$price = $_POST['price'];
+
+$dados = array($id, $name, $price);
+$_SESSION['dados'] = $dados;
+var_dump($_SESSION['dados'][$dados]);
+
+
+
+
+if(empty($produto->id)){
+  $produto = $carrinho->set($_POST['id'], 1);
+}
+
+
+
+
 var_dump(
   $produto->all(),
 );
 
+
+
 $date = date('Y-m-d');
-var_dump($date);
+
 
 $modelCard = new Card();
 $total = 0;
@@ -26,10 +45,6 @@ if(!$modelCard->find($card->card_date))
 {
     echo "Cadastro";
     $card->save();
-}else{
-    echo "Lendo";
-   
-
 }
 $card = $modelCard->find($date);
 
