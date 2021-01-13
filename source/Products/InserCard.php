@@ -6,7 +6,6 @@ use Source\Models\Product;
 
 require __DIR__ ."/../autoload.php";
 
-
 /**Iniciando a sessão carrinho */
 $carrinho = new Session();
 
@@ -69,6 +68,7 @@ $card = $modelCard->find($date);
               <th>Produto</th>
               <th>Preço</th>
               <th>Quantidade</th>
+              <th>Total</th>
               <th>Excluir</th>
             </tr>
       <tbody>
@@ -77,10 +77,22 @@ $card = $modelCard->find($date);
           <td><?=$key; ?></td>
           <td></td>
           <td></td>
+          <td><input type="number" min ='1' max= "<?=$value;?>" id="<?=$value;?>"></td>
           <td><?=$value;?></td>
-          <td><button type="submit"  class="btn btn-primary">Excluir</button></td>
+          <form action="" method="POST">
+          <td><button type="submit" name="botao" class="btn btn-primary">Excluir</button></td>
+          </form>
+            <?php 
+                $dif = $value;
+              if(isset($_POST["botao"])){
+                  $carrinho->unset($key, $dif);
+                  $value -= 1;
+                  header("Location: http://localhost/carrinho-php/");
+            } ?>
         </tr>
-        <?php endforeach ?>
+        <?php  
+        
+        endforeach ?>
       </tdoby>
       </table>
     </div>

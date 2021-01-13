@@ -45,12 +45,14 @@ public function __construct()
     }
 
 
-    public function unset(string $key): Session 
+    public function unset(string $key, $diferenca): Session 
     {
-
+        if($this->value < $diferenca){
+            $this->value = $this->value - $diferenca;
+        }else{
         unset($_SESSION['carrinho'][$key]);
         return $this;
-
+        }     
     }
 
    
